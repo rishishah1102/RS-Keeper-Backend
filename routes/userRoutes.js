@@ -12,7 +12,7 @@ let token;
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_ID,
     clientSecret: process.env.GOOGLE_SECRET,
-    callbackURL: "http://localhost:5000/auth/google/callback",
+    callbackURL: "https://rs-keepbackend.onrender.com/auth/google/callback",
 }, async function (accessToken, refreshToken, profile, done) {
         const user = new User({
             email: profile.emails[0].value,
@@ -35,7 +35,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_ID,
     clientSecret: process.env.FACEBOOK_SECRET,
-    callbackURL: "/auth/facebook/callback"
+    callbackURL: "https://rs-keepbackend.onrender.com/auth/facebook/callback"
 }, async function (accessToken, refreshToken, profile, done) {
         const user = new User({
             email: profile.emails[0].value,
